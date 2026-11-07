@@ -1,4 +1,4 @@
-# Лабораторна робота №1
+# Лабораторна робота №5
 # Георгіян Владислав
 # EIP30
 # Варіант 1
@@ -40,7 +40,21 @@ def solveBisection(func, a, b, e):
             result["x"] = c
             return result
 
-    result["calculation_protocol"].append((a, b, (a + b) / 2))
     result["x"] = (a + b) / 2
 
     return result
+
+def saveResultsToFile(results):
+    with open("results_variant_01.txt", "w", encoding = "utf-8") as file:
+        file.write(f"Корінь: {results["x"]}\n")
+        file.write(f"Кількість ітерацій: {results["iteration_number"]}\n")
+        
+        base_offset = 25
+
+        file.write(f"{'a':>{base_offset}}{'b':>{base_offset}}{'c':>{base_offset}}\n")
+        i = 1
+        for (a, b, c) in results["calculation_protocol"]:
+            file.write(f"{i}){a:>{base_offset - 2 + (len(str(a)) // 2)}}{b:>{base_offset + (len(str(b)) - len(str(a))) // 2}}{c:>{base_offset + (len(str(c)) - len(str(b))) // 2}}\n")
+            i += 1
+
+saveResultsToFile(solveBisection(targetFunction, 0, 1, 0.0001))
