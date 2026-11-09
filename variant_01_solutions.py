@@ -63,3 +63,14 @@ def saveResultsToFile(results):
 
     with open("results_variant_01.txt", "r", encoding = "utf-8") as file:
          return file.read()
+
+def main():
+    func = targetFunction
+    a = 0
+    b = 1
+    e = 0.0001
+    result = solveBisection(func, a, b, e)
+    print(saveResultsToFile(result))
+
+if __name__ == "__main__":
+    main()
