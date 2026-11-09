@@ -46,6 +46,10 @@ def solveBisection(func, a, b, e):
 
 def saveResultsToFile(results):
     with open("results_variant_01.txt", "w", encoding = "utf-8") as file:
+        if results == "Неправильні початкові межі":
+            file.write(results)
+            return results
+
         file.write(f"Корінь: {results["x"]}\n")
         file.write(f"Кількість ітерацій: {results["iteration_number"]}\n")
         
