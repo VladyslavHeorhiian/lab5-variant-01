@@ -57,4 +57,5 @@ def saveResultsToFile(results):
             file.write(f"{i}){a:>{base_offset - 2 + (len(str(a)) // 2)}}{b:>{base_offset + (len(str(b)) - len(str(a))) // 2}}{c:>{base_offset + (len(str(c)) - len(str(b))) // 2}}\n")
             i += 1
 
-saveResultsToFile(solveBisection(targetFunction, 0, 1, 0.0001))
+    with open("results_variant_01.txt", "r", encoding = "utf-8") as file:
+         return file.read()
