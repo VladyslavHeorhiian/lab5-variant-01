@@ -69,7 +69,7 @@ def main():
     a = 0
     b = 1
     e = 0.0001
-    result = solveBisection(func, a, b, e)
+    result = solveBisection(lambda x: math.acos(x ** 2) - x, a, b, e)
     print(saveResultsToFile(result))
 
 if __name__ == "__main__":
